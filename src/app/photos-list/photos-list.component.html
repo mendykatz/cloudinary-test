@@ -1,6 +1,23 @@
+<nb-card>
+  <nb-card-header>
+    Unassigned
+  </nb-card-header>
+  <nb-card-body>
+    <ng-container *ngFor="let photo of photosArr">
+      <div class="img-container">
+        <img [src]="photo.download_url">
+        <mat-icon  nbPopoverTrigger="click" [nbPopover]="tagsList" nbPopoverPlacement="bottom"
+         class="fas fa-tags"></mat-icon>
+      </div>
+    </ng-container>
+  </nb-card-body>
+</nb-card>
 
-<div>
-  <ng-container *ngFor="let photo of photosArr">
-    <img width="300" height="200" [src]="photo.download_url">
-  </ng-container>
-</div>
+<ng-template #tagsList>
+  <mat-list>
+    <mat-list-item >
+      sdfsdfsdfsdf
+    </mat-list-item>
+  </mat-list>
+</ng-template>
+

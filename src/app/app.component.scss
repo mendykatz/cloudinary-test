@@ -1,6 +1,15 @@
 .root-container {
-  height: 100vh;
-  width: 100vw;
   display: flex;
-  padding: 16px;
+
+  .right {
+    width: 80%;
+
+    .top-row {
+      height: 50vh;
+    }
+  }
+
+  .left {
+    width: 20%;
+  }
 }
