@@ -1,0 +1,25 @@
+nb-card {
+  max-height: 90vh;
+  padding-bottom: 16px;
+}
+
+nb-card-header {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+
+  button {
+    width: fit-content;
+  }
+}
+
+mat-list {
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+
+  mat-icon {
+    margin-left: auto;
+    cursor: pointer;
+  }
+}

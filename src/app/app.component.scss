@@ -1,11 +1,12 @@
 .root-container {
   display: flex;
+  gap: 10px;
 
   .right {
     width: 80%;
 
     .top-row {
-      height: 50vh;
+      height: 52vh;
     }
   }
 

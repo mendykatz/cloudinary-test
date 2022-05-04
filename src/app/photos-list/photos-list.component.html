@@ -3,20 +3,21 @@
     Unassigned
   </nb-card-header>
   <nb-card-body>
-    <ng-container *ngFor="let photo of photosArr">
+    <ng-container *ngFor="let photo of photosArr | filterByTag">
       <div class="img-container">
         <img [src]="photo.download_url">
-        <mat-icon  nbPopoverTrigger="click" [nbPopover]="tagsList" nbPopoverPlacement="bottom"
-         class="fas fa-tags"></mat-icon>
+        <i nbPopoverTrigger="click" *ngIf="tagsSrv.tagsList.length > 0" [nbPopover]="tagsList" nbPopoverPlacement="bottom" [nbPopoverContext]="{ photo }"
+         class="fas fa-tags"></i>
       </div>
     </ng-container>
   </nb-card-body>
 </nb-card>
 
-<ng-template #tagsList>
+<ng-template #tagsList let-data>
   <mat-list>
-    <mat-list-item >
-      sdfsdfsdfsdf
+    <mat-list-item [ngStyle]="{ 'background': tag.color }" *ngFor="let tag of tagsSrv.tagsList">
+      {{tag.name}}
+      <button nbButton status="primary" type="button" size="tiny" (click)="applyTagToPhoto(tag, data.photo)">Apply</button>
     </mat-list-item>
   </mat-list>
 </ng-template>

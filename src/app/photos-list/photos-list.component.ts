@@ -1,8 +1,10 @@
 import { Component, OnInit } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
+import { TagsService } from '../services/tags.service';
+import { MessageBusService } from '../services/message-bus.service';
 
 @Component({
-  selector: 'photos-list',
+  selector: 'app-photos-list',
   templateUrl: './photos-list.component.html',
   styleUrls: ['./photos-list.component.scss']
 })
@@ -12,6 +14,8 @@ export class PhotosListComponent implements OnInit {
 
   constructor(
     private http: HttpClient,
+    public tagsSrv: TagsService,
+    private messageBus: MessageBusService
   ) { }
 
   ngOnInit(): void {
@@ -21,6 +25,24 @@ export class PhotosListComponent implements OnInit {
         this.photosArr = res;
       }
     })
+
+    this.messageBus.on('tagRemoved', (event) => {
+      this.photosArr.forEach((photo: any) => {
+        photo.tagsList =  photo.tagsList.filter((tag: any) => tag.name != event.value);
+      });
+    })
+  }
+
+  applyTagToPhoto(tag: any, photo: any) {
+
+    if(!photo.tagsList) {
+      photo.tagsList = [];
+    }
+
+    if(photo.tagsList.some((tagItem: any) => tagItem.name == tag.name)) return;
+
+    photo.tagsList.push(tag);
+
   }
 
 }

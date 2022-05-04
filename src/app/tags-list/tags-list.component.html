@@ -1,0 +1,17 @@
+<nb-card>
+  <nb-card-header>
+    <nb-form-field>
+      <input nbInput #tagname maxlength="20"
+        placeholder="New Tag...">
+    </nb-form-field>
+    <button nbButton status="primary" type="button" (click)="tagsSrv.onSaveTag(tagname.value)">Save</button>
+  </nb-card-header>
+  <nb-card-body>
+    <mat-list>
+      <mat-list-item [ngStyle]="{ 'background': tag.color }" *ngFor="let tag of tagsSrv.tagsList">
+        {{tag.name}}
+        <mat-icon (click)="tagsSrv.onDeleteTag(tag.name)">delete</mat-icon>
+      </mat-list-item>
+    </mat-list>
+  </nb-card-body>
+</nb-card>
