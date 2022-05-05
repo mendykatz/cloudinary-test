@@ -1,7 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import { HttpClient } from '@angular/common/http';
 import { TagsService } from '../services/tags.service';
-import { MessageBusService } from '../services/message-bus.service';
+import { PhotosService } from '../services/photos.service';
 
 @Component({
   selector: 'app-photos-list',
@@ -10,28 +9,12 @@ import { MessageBusService } from '../services/message-bus.service';
 })
 export class PhotosListComponent implements OnInit {
 
-  photosArr: any = [];
-
   constructor(
-    private http: HttpClient,
     public tagsSrv: TagsService,
-    private messageBus: MessageBusService
+    public photosSrv: PhotosService
   ) { }
 
-  ngOnInit(): void {
-
-    this.http.get('https://picsum.photos/v2/list').subscribe({
-      next: (res: any) => {
-        this.photosArr = res;
-      }
-    })
-
-    this.messageBus.on('tagRemoved', (event) => {
-      this.photosArr.forEach((photo: any) => {
-        photo.tagsList =  photo.tagsList.filter((tag: any) => tag.name != event.value);
-      });
-    })
-  }
+  ngOnInit(): void {}
 
   applyTagToPhoto(tag: any, photo: any) {
 

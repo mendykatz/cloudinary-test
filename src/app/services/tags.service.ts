@@ -35,7 +35,7 @@ export class TagsService {
     this.tagsList = this.tagsList.filter((tag: any) => tag.name != tagName);
 
     this.messageBus.emit({
-      name: 'tagRemoved',
+      name: 'tagDeleted',
       value: tagName,
       sender: this
     })

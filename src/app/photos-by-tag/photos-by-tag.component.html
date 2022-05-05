@@ -1,0 +1,13 @@
+<nb-card>
+  <nb-card-header [ngStyle]="{'background': color}">
+    {{tagName}}
+  </nb-card-header>
+  <nb-card-body>
+    <mat-list>
+      <mat-list-item *ngFor="let photo of photosSrv.photosList | filterByTag: tagName">
+        <img [src]="photo.download_url">
+        <mat-icon (click)="onRemoveTag(tagName, photo)">delete</mat-icon>
+      </mat-list-item>
+    </mat-list>
+  </nb-card-body>
+</nb-card>

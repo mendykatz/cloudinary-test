@@ -13,6 +13,7 @@ import { MatListModule } from '@angular/material/list';
 import { TagsListComponent } from './tags-list/tags-list.component';
 import { FormsModule } from '@angular/forms';
 import { FilterByTagPipe } from './pipes/filter-by-tag.pipe';
+import { PhotosByTagComponent } from './photos-by-tag/photos-by-tag.component';
 
 @NgModule({
   declarations: [
@@ -20,6 +21,7 @@ import { FilterByTagPipe } from './pipes/filter-by-tag.pipe';
     PhotosListComponent,
     TagsListComponent,
     FilterByTagPipe,
+    PhotosByTagComponent,
   ],
   imports: [
     BrowserModule,

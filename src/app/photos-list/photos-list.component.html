@@ -3,7 +3,7 @@
     Unassigned
   </nb-card-header>
   <nb-card-body>
-    <ng-container *ngFor="let photo of photosArr | filterByTag">
+    <ng-container *ngFor="let photo of photosSrv.photosList | filterByTag">
       <div class="img-container">
         <img [src]="photo.download_url">
         <i nbPopoverTrigger="click" *ngIf="tagsSrv.tagsList.length > 0" [nbPopover]="tagsList" nbPopoverPlacement="bottom" [nbPopoverContext]="{ photo }"

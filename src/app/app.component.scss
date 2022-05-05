@@ -3,10 +3,21 @@
   gap: 10px;
 
   .right {
+    display: flex;
+    flex-direction: column;
     width: 80%;
 
     .top-row {
       height: 52vh;
+    }
+
+    .bottom-row {
+      height: 40vh;
+      display: flex;
+      gap: 5px;
+      width: 100%;
+      overflow-x: auto;
+      margin-top: 16px;
     }
   }
 
