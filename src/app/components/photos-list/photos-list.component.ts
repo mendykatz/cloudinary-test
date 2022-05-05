@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import { TagsService } from '../services/tags.service';
-import { PhotosService } from '../services/photos.service';
+import { TagsService } from '../../services/tags.service';
+import { PhotosService } from '../../services/photos.service';
 
 @Component({
   selector: 'app-photos-list',
@@ -15,17 +15,5 @@ export class PhotosListComponent implements OnInit {
   ) { }
 
   ngOnInit(): void {}
-
-  applyTagToPhoto(tag: any, photo: any) {
-
-    if(!photo.tagsList) {
-      photo.tagsList = [];
-    }
-
-    if(photo.tagsList.some((tagItem: any) => tagItem.name == tag.name)) return;
-
-    photo.tagsList.push(tag);
-
-  }
 
 }

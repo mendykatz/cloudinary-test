@@ -1,0 +1,21 @@
+<nb-card>
+  <nb-card-header [ngStyle]="{'background': color}">
+    {{tagName}}
+  </nb-card-header>
+  <nb-card-body>
+    <mat-list>
+      <mat-list-item *ngFor="let photo of photosSrv.photosList | filterByTag: tagName">
+        <img [src]="photo.download_url">
+        <div class="tags-icon-wrapper" [nbTooltip]="'Add tags'">
+          <i  nbPopoverTrigger="click"  *ngIf="tagsSrv.tagsList.length > 0" [nbPopover]="tagsList"
+            nbPopoverPlacement="bottom" [nbPopoverContext]="{ photo }" class="fas fa-tags"></i>
+        </div>
+        <mat-icon (click)="onRemoveTag(tagName, photo)" [nbTooltip]="'Remove tag'" >delete</mat-icon>
+      </mat-list-item>
+    </mat-list>
+  </nb-card-body>
+</nb-card>
+
+<ng-template #tagsList let-data>
+  <app-apply-tag-to-photo [photo]="data.photo"></app-apply-tag-to-photo>
+</ng-template>

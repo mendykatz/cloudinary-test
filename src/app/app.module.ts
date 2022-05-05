@@ -3,17 +3,18 @@ import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 
 import { AppComponent } from './app.component';
-import { PhotosListComponent } from './photos-list/photos-list.component';
+import { PhotosListComponent } from './components/photos-list/photos-list.component';
 import { NoopAnimationsModule } from '@angular/platform-browser/animations';
-import { NbThemeModule, NbLayoutModule, NbCardModule, NbPopoverModule, NbInputModule, NbFormFieldModule, NbButtonModule } from '@nebular/theme';
+import { NbThemeModule, NbLayoutModule, NbCardModule, NbPopoverModule, NbInputModule, NbFormFieldModule, NbButtonModule, NbTooltipModule } from '@nebular/theme';
 import { NbEvaIconsModule } from '@nebular/eva-icons';
 import { AppRoutingModule } from './app-routing.module';
 import { MatIconModule } from '@angular/material/icon';
 import { MatListModule } from '@angular/material/list';
-import { TagsListComponent } from './tags-list/tags-list.component';
+import { TagsListComponent } from './components/tags-list/tags-list.component';
 import { FormsModule } from '@angular/forms';
 import { FilterByTagPipe } from './pipes/filter-by-tag.pipe';
-import { PhotosByTagComponent } from './photos-by-tag/photos-by-tag.component';
+import { PhotosByTagComponent } from './components/photos-by-tag/photos-by-tag.component';
+import { ApplyTagToPhotoComponent } from './components/apply-tag-to-photo/apply-tag-to-photo.component';
 
 @NgModule({
   declarations: [
@@ -22,6 +23,7 @@ import { PhotosByTagComponent } from './photos-by-tag/photos-by-tag.component';
     TagsListComponent,
     FilterByTagPipe,
     PhotosByTagComponent,
+    ApplyTagToPhotoComponent,
   ],
   imports: [
     BrowserModule,
@@ -38,7 +40,8 @@ import { PhotosByTagComponent } from './photos-by-tag/photos-by-tag.component';
     FormsModule,
     NbInputModule,
     NbFormFieldModule,
-    NbButtonModule
+    NbButtonModule,
+    NbTooltipModule
   ],
   providers: [],
   bootstrap: [AppComponent]

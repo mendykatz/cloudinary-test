@@ -1,0 +1,21 @@
+<nb-card>
+  <nb-card-header>
+    Unassigned
+  </nb-card-header>
+  <nb-card-body>
+    <ng-container *ngFor="let photo of photosSrv.photosList | filterByTag">
+      <div class="img-container">
+        <img [src]="photo.download_url">
+        <div class="tags-icon-wrapper" [nbTooltip]="'Add tags'">
+          <i nbPopoverTrigger="click" *ngIf="tagsSrv.tagsList.length > 0" [nbPopover]="tagsList" nbPopoverPlacement="bottom" [nbPopoverContext]="{ photo }"
+           class="fas fa-tags"></i>
+        </div>
+      </div>
+    </ng-container>
+  </nb-card-body>
+</nb-card>
+
+<ng-template #tagsList let-data>
+   <app-apply-tag-to-photo [photo]="data.photo"></app-apply-tag-to-photo>
+</ng-template>
+

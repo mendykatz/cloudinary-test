@@ -1,0 +1,6 @@
+<mat-list>
+  <mat-list-item [ngStyle]="{ 'background': tag.color }" *ngFor="let tag of tagsSrv.tagsList">
+    {{tag.name}}
+    <button nbButton status="primary" type="button" size="tiny" (click)="photosSrv.applyTagToPhoto(tag, photo)">Apply</button>
+  </mat-list-item>
+</mat-list>

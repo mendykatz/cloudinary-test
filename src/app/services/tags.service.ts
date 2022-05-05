@@ -7,6 +7,7 @@ import { MessageBusService } from './message-bus.service';
 export class TagsService {
 
   tagsList: any = [];
+  tagNameToEdit;
 
   constructor(
     private messageBus: MessageBusService
@@ -16,7 +17,17 @@ export class TagsService {
     tagName = tagName.trim();
     if(!tagName) return;
 
-    if(this.tagsList.some((tag: any) => tag.name == tagName)) return;
+    if(this.tagsList.some((tag: any) => tag.name == tagName)){
+      this.tagNameToEdit = '';
+      return;
+    }
+
+    if(this.tagNameToEdit) {
+      let tag = this.tagsList.find((tag: any) => tag.name == this.tagNameToEdit);
+      tag.name = tagName;
+      this.tagNameToEdit = '';
+      return;
+    }
 
     let color = "#000000".replace(/0/g, function () {
       return (~~(Math.random() * 16)).toString(16);
@@ -41,4 +52,5 @@ export class TagsService {
     })
 
   }
+
 }

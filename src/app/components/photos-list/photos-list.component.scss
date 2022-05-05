@@ -7,7 +7,7 @@ nb-card-body {
   display: flex;
   flex-wrap: wrap;
   gap: 8px;
-  padding-left: 3vw;
+  padding-left: 2.5vw;
   padding-right: 0.5vw;
 }
 
@@ -24,12 +24,13 @@ nb-card-body {
     0px 5px 26px 4px rgba(0, 0, 0, 0.12);
   }
 
-  i {
+  .tags-icon-wrapper {
     position: absolute;
     right: 8px;
     bottom: 5px;
-    color: whitesmoke;
-    cursor: pointer;
+    i {
+      color: whitesmoke;
+    }
   }
 }
 

@@ -10,7 +10,8 @@
     <mat-list>
       <mat-list-item [ngStyle]="{ 'background': tag.color }" *ngFor="let tag of tagsSrv.tagsList">
         {{tag.name}}
-        <mat-icon (click)="tagsSrv.onDeleteTag(tag.name)">delete</mat-icon>
+        <mat-icon class="edit-icon" [nbTooltip]="'Rename tag'" (click)="onRenameTag(tag.name)">edit</mat-icon>
+        <mat-icon [nbTooltip]="'Delete tag'" (click)="tagsSrv.onDeleteTag(tag.name)">delete</mat-icon>
       </mat-list-item>
     </mat-list>
   </nb-card-body>

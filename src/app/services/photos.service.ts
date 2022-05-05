@@ -27,4 +27,16 @@ export class PhotosService {
     })
 
   }
+
+  applyTagToPhoto(tag: any, photo: any) {
+
+    if(!photo.tagsList) {
+      photo.tagsList = [];
+    }
+
+    if(photo.tagsList.some((tagItem: any) => tagItem.name == tag.name)) return;
+
+    photo.tagsList.push(tag);
+
+  }
 }

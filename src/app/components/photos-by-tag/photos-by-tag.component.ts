@@ -1,6 +1,6 @@
 import { Component, Input, OnInit } from '@angular/core';
-import { PhotosService } from '../services/photos.service';
-import { TagsService } from '../services/tags.service';
+import { PhotosService } from '../../services/photos.service';
+import { TagsService } from '../../services/tags.service';
 
 @Component({
   selector: 'app-photos-by-tag',

@@ -13,7 +13,14 @@ nb-card {
   }
 }
 
-mat-icon {
+mat-icon, i {
   color: gray;
 }
 
+i {
+  cursor: pointer;
+}
+
+.tags-icon-wrapper {
+  margin-left: auto;
+}
