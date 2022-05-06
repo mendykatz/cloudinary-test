@@ -18,11 +18,4 @@ export class PhotosListComponent implements OnInit {
 
   ngOnInit(): void {}
 
-  search() {
-
-  }
-
-  cleanInput() {
-
-  }
 }

@@ -22,5 +22,7 @@ export class PhotosByTagComponent implements OnInit {
 
   onRemoveTag(tagName: string, photo) {
     photo.tagsList = photo.tagsList.filter((tag) => tag.name != tagName);
+
+    this.photosSrv.savePhotosTagsToLocalStorage(photo);
   }
 }

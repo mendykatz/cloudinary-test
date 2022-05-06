@@ -8,21 +8,31 @@ import { MessageBusService } from './message-bus.service';
 export class PhotosService {
 
   photosList: any = [];
+  photosTagsLocalStorge = {};
 
   constructor(
     private http: HttpClient,
     private messageBus: MessageBusService
   ) {
+    let photosTagsLocalStorge = JSON.parse(localStorage.getItem('photosTags'));
+    this.photosTagsLocalStorge = photosTagsLocalStorge ? photosTagsLocalStorge : {};
 
     this.http.get('https://picsum.photos/v2/list').subscribe({
       next: (res: any) => {
         this.photosList = res;
+
+        if(this.photosTagsLocalStorge) {
+          this.photosList.forEach(photo => {
+            photo.tagsList = this.photosTagsLocalStorge[photo.id];
+          });
+        }
       }
     })
 
     this.messageBus.on('tagDeleted', (event) => {
       this.photosList.forEach((photo) => {
         photo.tagsList =  photo.tagsList?.filter((tag) => tag.name != event.value);
+        this.savePhotosTagsToLocalStorage(photo);
       });
     })
 
@@ -38,5 +48,11 @@ export class PhotosService {
 
     photo.tagsList.push(tag);
 
+    this.savePhotosTagsToLocalStorage(photo);
+  }
+
+  savePhotosTagsToLocalStorage(photo) {
+    this.photosTagsLocalStorge[photo.id] = photo.tagsList;
+    localStorage.setItem('photosTags', JSON.stringify(this.photosTagsLocalStorge));
   }
 }

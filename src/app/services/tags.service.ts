@@ -11,7 +11,10 @@ export class TagsService {
 
   constructor(
     private messageBus: MessageBusService
-  ) { }
+  ) {
+    let tags = JSON.parse(localStorage.getItem('tagList'));
+    this.tagsList = tags ? tags : [];
+   }
 
   onSaveTag(tagName: string) {
     tagName = tagName.trim();
@@ -39,6 +42,8 @@ export class TagsService {
     }
 
     this.tagsList.push(newTag);
+
+    localStorage.setItem('tagList', JSON.stringify(this.tagsList));
   }
 
   onDeleteTag(tagName: string) {
@@ -51,6 +56,7 @@ export class TagsService {
       sender: this
     })
 
+    localStorage.setItem('tagList', JSON.stringify(this.tagsList));
   }
 
 }
