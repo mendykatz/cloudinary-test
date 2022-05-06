@@ -6,7 +6,6 @@ import { AppComponent } from './app.component';
 import { PhotosListComponent } from './components/photos-list/photos-list.component';
 import { NoopAnimationsModule } from '@angular/platform-browser/animations';
 import { NbThemeModule, NbLayoutModule, NbCardModule, NbPopoverModule, NbInputModule, NbFormFieldModule, NbButtonModule, NbTooltipModule } from '@nebular/theme';
-import { NbEvaIconsModule } from '@nebular/eva-icons';
 import { AppRoutingModule } from './app-routing.module';
 import { MatIconModule } from '@angular/material/icon';
 import { MatListModule } from '@angular/material/list';
@@ -31,7 +30,6 @@ import { ApplyTagToPhotoComponent } from './components/apply-tag-to-photo/apply-
     NoopAnimationsModule,
     NbThemeModule.forRoot({ name: 'default' }),
     NbLayoutModule,
-    NbEvaIconsModule,
     AppRoutingModule,
     NbCardModule,
     MatIconModule,
@@ -41,7 +39,7 @@ import { ApplyTagToPhotoComponent } from './components/apply-tag-to-photo/apply-
     NbInputModule,
     NbFormFieldModule,
     NbButtonModule,
-    NbTooltipModule
+    NbTooltipModule,
   ],
   providers: [],
   bootstrap: [AppComponent]

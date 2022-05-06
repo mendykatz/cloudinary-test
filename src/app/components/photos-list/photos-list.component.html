@@ -1,9 +1,12 @@
 <nb-card>
   <nb-card-header>
     Unassigned
+    <nb-form-field class="search-field">
+      <input nbInput type="text" placeholder="Search..." [(ngModel)]="searchValue">
+    </nb-form-field>
   </nb-card-header>
   <nb-card-body>
-    <ng-container *ngFor="let photo of photosSrv.photosList | filterByTag">
+    <ng-container *ngFor="let photo of photosSrv.photosList | filterByTag: searchValue">
       <div class="img-container">
         <img [src]="photo.download_url">
         <div class="tags-icon-wrapper" [nbTooltip]="'Add tags'">

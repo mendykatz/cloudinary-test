@@ -3,6 +3,14 @@ nb-card {
   padding-bottom: 16px;
 }
 
+nb-card-header {
+  display: flex;
+  align-items: center;
+  nb-form-field {
+    margin-left: auto;
+  }
+}
+
 nb-card-body {
   display: flex;
   flex-wrap: wrap;

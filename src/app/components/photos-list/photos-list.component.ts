@@ -9,6 +9,8 @@ import { PhotosService } from '../../services/photos.service';
 })
 export class PhotosListComponent implements OnInit {
 
+  searchValue = '';
+
   constructor(
     public tagsSrv: TagsService,
     public photosSrv: PhotosService
@@ -16,4 +18,11 @@ export class PhotosListComponent implements OnInit {
 
   ngOnInit(): void {}
 
+  search() {
+
+  }
+
+  cleanInput() {
+
+  }
 }
