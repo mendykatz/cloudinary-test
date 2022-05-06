@@ -20,7 +20,7 @@ export class PhotosByTagComponent implements OnInit {
   ngOnInit(): void {
   }
 
-  onRemoveTag(tagName: string, photo: any) {
-    photo.tagsList = photo.tagsList.filter((tag: any) => tag.name != tagName);
+  onRemoveTag(tagName: string, photo) {
+    photo.tagsList = photo.tagsList.filter((tag) => tag.name != tagName);
   }
 }

@@ -6,11 +6,11 @@ import { Pipe, PipeTransform } from '@angular/core';
 })
 export class FilterByTagPipe implements PipeTransform {
 
-  transform(arr: any, tagName: string = ''): any {
+  transform(arr: any, tagName: string = '') {
     if(!tagName) {
-      arr = arr.filter((item: any) =>  !item.tagsList || item.tagsList.length == 0);
+      arr = arr.filter((item) =>  !item.tagsList || item.tagsList.length == 0);
     } else {
-      arr = arr.filter((item: any) =>  item.tagsList?.some((x: any) => x.name == tagName));
+      arr = arr.filter((item) =>  item.tagsList?.some((x) => x.name == tagName));
     }
 
     return arr;

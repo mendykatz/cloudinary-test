@@ -22,7 +22,7 @@ export class AppComponent {
 
     let res = false;
     this.photosSrv.photosList.forEach((photo: any) => {
-      if(photo.tagsList?.some((x: any) => x.name == tagName)) {
+      if(photo.tagsList?.some((x) => x.name == tagName)) {
         res = true;
       }
     })

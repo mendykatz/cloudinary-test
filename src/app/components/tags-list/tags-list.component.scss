@@ -1,6 +1,9 @@
 nb-card {
-  max-height: 90vh;
   padding-bottom: 16px;
+}
+
+nb-card-body {
+  max-height: 79vh;
 }
 
 nb-card-header {
@@ -17,6 +20,10 @@ mat-list {
   display: flex;
   flex-direction: column;
   gap: 5px;
+
+  mat-list-item {
+    max-width: 400px;
+  }
 }
 
 mat-icon.edit-icon {

@@ -21,20 +21,20 @@ export class PhotosService {
     })
 
     this.messageBus.on('tagDeleted', (event) => {
-      this.photosList.forEach((photo: any) => {
-        photo.tagsList =  photo.tagsList?.filter((tag: any) => tag.name != event.value);
+      this.photosList.forEach((photo) => {
+        photo.tagsList =  photo.tagsList?.filter((tag) => tag.name != event.value);
       });
     })
 
   }
 
-  applyTagToPhoto(tag: any, photo: any) {
+  applyTagToPhoto(tag, photo) {
 
     if(!photo.tagsList) {
       photo.tagsList = [];
     }
 
-    if(photo.tagsList.some((tagItem: any) => tagItem.name == tag.name)) return;
+    if(photo.tagsList.some((tagItem) => tagItem.name == tag.name)) return;
 
     photo.tagsList.push(tag);
 

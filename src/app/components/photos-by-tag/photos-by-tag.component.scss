@@ -11,6 +11,10 @@ nb-card {
   nb-card-header {
     color: whitesmoke;
   }
+
+  nb-card-body {
+    max-height: 320px;
+  }
 }
 
 mat-icon, i {
@@ -24,3 +28,17 @@ i {
 .tags-icon-wrapper {
   margin-left: auto;
 }
+
+@media screen and (max-width: 1300px) {
+  nb-card {
+    width: 33vw;
+  }
+}
+
+@media screen and (max-width: 700px) {
+  nb-card {
+    width: 100%;
+  }
+}
+
+

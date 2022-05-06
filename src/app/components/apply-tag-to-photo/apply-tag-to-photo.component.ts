@@ -9,7 +9,7 @@ import { TagsService } from 'src/app/services/tags.service';
 })
 export class ApplyTagToPhotoComponent implements OnInit {
 
-  @Input() photo: any = {};
+  @Input() photo;
 
   constructor(
     public tagsSrv: TagsService,

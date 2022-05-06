@@ -17,13 +17,13 @@ export class TagsService {
     tagName = tagName.trim();
     if(!tagName) return;
 
-    if(this.tagsList.some((tag: any) => tag.name == tagName)){
+    if(this.tagsList.some((tag) => tag.name == tagName)){
       this.tagNameToEdit = '';
       return;
     }
 
     if(this.tagNameToEdit) {
-      let tag = this.tagsList.find((tag: any) => tag.name == this.tagNameToEdit);
+      let tag = this.tagsList.find((tag) => tag.name == this.tagNameToEdit);
       tag.name = tagName;
       this.tagNameToEdit = '';
       return;
@@ -43,7 +43,7 @@ export class TagsService {
 
   onDeleteTag(tagName: string) {
 
-    this.tagsList = this.tagsList.filter((tag: any) => tag.name != tagName);
+    this.tagsList = this.tagsList.filter((tag) => tag.name != tagName);
 
     this.messageBus.emit({
       name: 'tagDeleted',

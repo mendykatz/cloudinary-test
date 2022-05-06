@@ -54,3 +54,20 @@ img {
     margin-left: auto;
   }
 }
+
+@media screen and (max-width: 1300px) {
+  .img-container {
+    width: 32%;
+  }
+}
+
+@media screen and (max-width: 700px) {
+  nb-card-body {
+    flex-direction: column;
+    flex-wrap: unset;
+  }
+
+  .img-container {
+    width: 100%;
+  }
+}

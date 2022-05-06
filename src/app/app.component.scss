@@ -25,3 +25,27 @@
     width: 20%;
   }
 }
+
+@media screen and (max-width: 1300px) {
+  .root-container {
+      flex-direction: column;
+      .right, .left {
+        width: 100%;
+      }
+
+      .right .top-row {
+        height: 500px;
+      }
+
+  }
+}
+
+
+@media screen and (max-width: 700px) {
+  .root-container {
+    .right .bottom-row {
+      flex-direction: column;
+      height: unset;
+  }
+  }
+}
