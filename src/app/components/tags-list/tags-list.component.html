@@ -8,14 +8,18 @@
   </nb-card-header>
   <nb-card-body>
     <mat-list cdkDropList (cdkDropListDropped)="drop($event)"
-     cdkDropListSortingDisabled="true">
-      <mat-list-item cdkDrag [ngStyle]="{ 'background': tag.color}"
+     cdkDropListSortingDisabled="true"
+     [cdkDropListData]="tagsSrv.tagsList"
+     (cdkDropListExited)="onSourceListExited($event)"
+     (cdkDropListEntered)="onSourceListEntered($event)">
+      <mat-list-item [cdkDragData]="tag"  cdkDrag [ngStyle]="{ 'background': tag.color}"
       [ngClass]="{ 'selected': tagsSrv.tagNameToEdit == tag.name }"
       *ngFor="let tag of tagsSrv.tagsList">
         {{tag.name}}
         <mat-icon class="edit-icon" [nbTooltip]="'Rename tag'" (click)="onRenameTag(tag.name)">edit</mat-icon>
         <mat-icon [nbTooltip]="'Delete tag'" (click)="tagsSrv.onDeleteTag(tag.name)">delete</mat-icon>
       </mat-list-item>
+      <div *cdkDragPlaceholder></div>
     </mat-list>
   </nb-card-body>
 </nb-card>

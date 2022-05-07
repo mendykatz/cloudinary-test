@@ -14,7 +14,7 @@
             </div>
             <div class="bottom-row">
               <ng-container *ngFor="let tag of tagsSrv.tagsList">
-                <app-photos-by-tag *ngIf="isPhotosTagged(tag.name)"
+                <app-photos-by-tag *ngIf="!tag.temp && isPhotosTagged(tag.name)"
                 [color]="tag.color" [tagName]="tag.name">
 
                 </app-photos-by-tag>

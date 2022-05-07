@@ -35,4 +35,19 @@ export class TagsListComponent implements OnInit {
     }
   }
 
+  onSourceListExited(event) {
+    const currentIdx = event.container.data.findIndex(
+      (tag) => tag.name === event.item.data.name
+    );
+
+    this.tagsSrv.tagsList.splice(currentIdx + 1, 0, {
+      ...event.item.data,
+      temp: true,
+    });
+  }
+
+  onSourceListEntered(event) {
+    this.tagsSrv.tagsList = this.tagsSrv.tagsList.filter((tag) => !tag.temp);
+  }
+
 }
