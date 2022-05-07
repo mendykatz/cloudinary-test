@@ -23,6 +23,11 @@ mat-list {
 
   mat-list-item {
     max-width: 400px;
+
+    &.selected {
+      transform: scale(1.02);
+      border: 1px solid springgreen;
+    }
   }
 }
 

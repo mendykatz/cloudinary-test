@@ -6,7 +6,7 @@
     </nb-form-field>
   </nb-card-header>
   <nb-card-body>
-    <ng-container *ngFor="let photo of photosSrv.photosList | filterByTag: searchValue">
+    <ng-container *ngFor="let photo of photosSrv.photosList | filterByTag: searchValue : !!searchValue">
       <div class="img-container">
         <img [src]="photo.download_url">
         <div class="tags-icon-wrapper" [nbTooltip]="'Add tags'">

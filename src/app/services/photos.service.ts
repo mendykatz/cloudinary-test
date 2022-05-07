@@ -29,6 +29,18 @@ export class PhotosService {
       }
     })
 
+    this.messageBus.on('tagRenamed', (event) => {
+
+      this.photosList.forEach((photo) => {
+        let tag =  photo.tagsList?.find((tag) => tag.name == event.value.previousName);
+
+        if(tag) {
+          tag.name = event.value.newName;
+          this.savePhotosTagsToLocalStorage(photo);
+        }
+      });
+    })
+
     this.messageBus.on('tagDeleted', (event) => {
       this.photosList.forEach((photo) => {
         photo.tagsList =  photo.tagsList?.filter((tag) => tag.name != event.value);

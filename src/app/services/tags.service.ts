@@ -27,8 +27,19 @@ export class TagsService {
 
     if(this.tagNameToEdit) {
       let tag = this.tagsList.find((tag) => tag.name == this.tagNameToEdit);
+      this.messageBus.emit({
+        name: 'tagRenamed',
+        value: {
+         previousName: tag.name,
+         newName: tagName
+        },
+        sender: this
+      })
+
       tag.name = tagName;
       this.tagNameToEdit = '';
+
+      localStorage.setItem('tagList', JSON.stringify(this.tagsList));
       return;
     }
 
