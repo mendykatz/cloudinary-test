@@ -14,6 +14,7 @@ import { FormsModule } from '@angular/forms';
 import { FilterByTagPipe } from './pipes/filter-by-tag.pipe';
 import { PhotosByTagComponent } from './components/photos-by-tag/photos-by-tag.component';
 import { ApplyTagToPhotoComponent } from './components/apply-tag-to-photo/apply-tag-to-photo.component';
+import { DragDropModule } from '@angular/cdk/drag-drop';
 
 @NgModule({
   declarations: [
@@ -40,6 +41,7 @@ import { ApplyTagToPhotoComponent } from './components/apply-tag-to-photo/apply-
     NbFormFieldModule,
     NbButtonModule,
     NbTooltipModule,
+    DragDropModule
   ],
   providers: [],
   bootstrap: [AppComponent]

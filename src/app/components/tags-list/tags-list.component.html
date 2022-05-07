@@ -7,8 +7,11 @@
     <button nbButton status="primary" type="button" (click)="tagsSrv.onSaveTag(tagname.value)">Save</button>
   </nb-card-header>
   <nb-card-body>
-    <mat-list>
-      <mat-list-item [ngStyle]="{ 'background': tag.color}" [ngClass]="{ 'selected': tagsSrv.tagNameToEdit == tag.name }" *ngFor="let tag of tagsSrv.tagsList">
+    <mat-list cdkDropList (cdkDropListDropped)="drop($event)"
+     cdkDropListSortingDisabled="true">
+      <mat-list-item cdkDrag [ngStyle]="{ 'background': tag.color}"
+      [ngClass]="{ 'selected': tagsSrv.tagNameToEdit == tag.name }"
+      *ngFor="let tag of tagsSrv.tagsList">
         {{tag.name}}
         <mat-icon class="edit-icon" [nbTooltip]="'Rename tag'" (click)="onRenameTag(tag.name)">edit</mat-icon>
         <mat-icon [nbTooltip]="'Delete tag'" (click)="tagsSrv.onDeleteTag(tag.name)">delete</mat-icon>

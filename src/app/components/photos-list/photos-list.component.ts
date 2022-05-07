@@ -18,4 +18,10 @@ export class PhotosListComponent implements OnInit {
 
   ngOnInit(): void {}
 
+  drop(event, photo) {
+    let tagIndex = event.previousIndex;
+
+    this.photosSrv.applyTagToPhoto(this.tagsSrv.tagsList[tagIndex], photo);
+  }
+
 }

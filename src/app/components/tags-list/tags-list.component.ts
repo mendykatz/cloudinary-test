@@ -1,3 +1,4 @@
+import { copyArrayItem } from '@angular/cdk/drag-drop';
 import { Component, ElementRef, OnInit, ViewChild } from '@angular/core';
 import { TagsService } from '../../services/tags.service';
 
@@ -21,6 +22,17 @@ export class TagsListComponent implements OnInit {
     this.tagsSrv.tagNameToEdit = tagName;
     this.tagname.nativeElement.value = tagName;
     this.tagname.nativeElement.focus();
+  }
+
+  drop(event) {
+    if (event.previousContainer !== event.container) {
+      copyArrayItem(
+        event.previousContainer.data,
+        event.container.data,
+        event.previousIndex,
+        event.currentIndex
+      );
+    }
   }
 
 }
