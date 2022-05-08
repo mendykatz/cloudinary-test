@@ -22,6 +22,8 @@ export class PhotosListComponent implements OnInit {
     let tagIndex = event.previousIndex;
 
     this.photosSrv.applyTagToPhoto(this.tagsSrv.tagsList[tagIndex], photo);
+
+    //fix for missing placeholder.
     this.tagsSrv.tagsList = this.tagsSrv.tagsList.filter((tag) => !tag.temp);
   }
 

@@ -35,6 +35,7 @@ export class TagsListComponent implements OnInit {
     }
   }
 
+  //fix for missing placeholder.
   onSourceListExited(event) {
     const currentIdx = event.container.data.findIndex(
       (tag) => tag.name === event.item.data.name
@@ -46,6 +47,7 @@ export class TagsListComponent implements OnInit {
     });
   }
 
+  //fix for missing placeholder.
   onSourceListEntered(event) {
     this.tagsSrv.tagsList = this.tagsSrv.tagsList.filter((tag) => !tag.temp);
   }
